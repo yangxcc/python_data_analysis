@@ -14,4 +14,4 @@
 ## Sklearn机器学习
 此仓库中有关机器学习算法只是简单的应用，并未涉及原理性的解释，详细原理、具体实现请见本人其他仓库。。。。。
 ## 整个的学习图谱
-![]()
+![](https://github.com/yangxcc/python_data_analysis/blob/master/image/1.png)
