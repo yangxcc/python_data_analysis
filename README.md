@@ -19,6 +19,20 @@ NumPy是一个开源的Python科学计算基础库，是SciPy、Pandas等数据�
 **高级索引** x = np.array([[1,  2],  [3,  4],  [5,  6]])  y = x[[0,1,2],  [0,1,0]]  上述获取x数组中(0,0)，(1,1)和(2,0)位置处的元素。<br>
 **其他** 在进行数据分析时，可以使用NumPy中封装好的函数来对数组进行提取、分割等操作，在得到数据的基础上也可以直接调用统计学方法来对数据进行统计（比如sum(),mean()等，他们也可以选择某一特定的维度，即可以接受axis参数等）；NumPy数组也可以通过sort方法就地排序，多维数组可以在任何一个轴向上进行排序，只需将轴编号传给sort即可；NumPy还可以生成伪随机数，伪随机数是用确定性的算法计算出来的似来自[0,1]均匀分布的随机数序列（例如正态分布）。并不真正的随机，但具有类似于随机数的统计特征，如均匀性、独立性等。
 ## Pandas数据分析
+Pandas是一个基于NumPy的数据分析包，Pandas的数据结构包括：<br>
+* Series，一种类似于一维数组的对象，它是由一组数据（各种NumPy数据类型）以及一组与之相关的数据标签（即索引组成），仅有一组数据即可产生简单的Series
+* DataFrame，一种表格型的数据结构（二维），含有一组有序的列，每列可以是不同的值类型（数值，字符串，布尔值等），DataFrame既有行索引也有列索引，可以被看作是由Series组成的字典。
+**Series**对象本质上是由两个数组组成，一个数组构成对象的键（index,索引），另一个数组构成对象的值（values），Series对象的创建可以通过以下3种方法：
+* 通过一维数组创建，例如：series = pandas.Series([1,2,3,4],index=["语文","数学"，"英语","政治"])
+* 通过字典的方式创建，dict = {'key1':'value1','key2':'value2'}   series = pandas.Series(dict)
+* 标量值，index表示Series类型的尺寸，如series = pandas.Series(25,["a","b","c"])结果为abc上个索引的值均为25
+此外，NumPy中运算和操作可用于Series类型，比如np.exp(series)表示的就是对series中的值进行e的幂次方运算。不同Series之间进行算术运算，会自动对齐不同索引的数据。Series类型的操作类似于Python字典类型，可以通过**自定义索引**访问，通过**保留字in**操作访问，使用 **get()方法**访问。Series对象本身及其索引都有一个name属性，可以通过此属性来定义名称<br>
+**DataFrame**对象既有行索引，又有列索引，行索引表明不同的行，横向索引叫做index，0轴，axis=0；列索引表明不同的列，列索引叫做column，1轴，axis=1，DataFrame对象的创建可以通过以下4种方法确定：<br>
+* 二维ndarray对象，如 df = pd.DataFrame(np.arange(10).reshape(2,5))
+* 通过列表的方式创建DataFrame，如 df1 = pd.DataFrame([["tom","bob","tony"],[1,2,3]])或者arr = [["tom",1],["tony":3]]  df2 = pd.DataFrame(arr,index=[1,2],column=["one","two"])
+* 通过字典的方式创建DataFrame,如 data={'data':[1,2,3],'year':[4,5,6]}  df = pd.DataFrame(data)
+* Series类型和其他DataFrame对象（比如打开一个csv文件，将其转换成dataframe格式）
+**层次化索引**在某个方向上拥有多个(两个或两个以上)索引级别，通过层次化索引，pandas可以通过低纬度形式来操作高维度数据，通过层次化索引，可以按层级统计数据。如下图：![](https://github.com/yangxcc/python_data_analysis/image/层次化索引示例.png)
 ## matplotlib数据可视化
 ## Sklearn机器学习
 此仓库中有关机器学习算法只是简单的应用，并未涉及原理性的解释，详细原理、具体实现请见本人其他仓库。。。。。
