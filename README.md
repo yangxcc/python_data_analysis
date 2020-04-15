@@ -32,7 +32,10 @@ Pandas是一个基于NumPy的数据分析包，Pandas的数据结构包括：<br
 * 通过列表的方式创建DataFrame，如 df1 = pd.DataFrame([["tom","bob","tony"],[1,2,3]])或者arr = [["tom",1],["tony":3]]  df2 = pd.DataFrame(arr,index=[1,2],column=["one","two"])
 * 通过字典的方式创建DataFrame,如 data={'data':[1,2,3],'year':[4,5,6]}  df = pd.DataFrame(data)
 * Series类型和其他DataFrame对象（比如打开一个csv文件，将其转换成dataframe格式）
-**层次化索引**在某个方向上拥有多个(两个或两个以上)索引级别，通过层次化索引，pandas可以通过低纬度形式来操作高维度数据，通过层次化索引，可以按层级统计数据。如下图：![](https://github.com/yangxcc/python_data_analysis/image/层次化索引示例.png)
+**层次化索引**在某个方向上拥有多个(两个或两个以上)索引级别，通过层次化索引，pandas可以通过低纬度形式来操作高维度数据，通过层次化索引，可以按层级统计数据。如下图：![](https://github.com/yangxcc/python_data_analysis/blob/master/image/%E5%B1%82%E6%AC%A1%E5%8C%96%E7%B4%A2%E5%BC%95%E7%A4%BA%E4%BE%8B.png)<br>
+#### 利用Pandas读写数据
+以csv文件为例，读取csv文件:pd.read_csv(),将数据写入csv文件:pd.to_csv()<br>
+Pandas库在机器学习项目中的应用主要有两个步骤：（1）读取文件，（2）数据清洗和编辑工作，该步骤中，我们常常需要借组numpy数组来处理数据。
 ## matplotlib数据可视化
 ## Sklearn机器学习
 此仓库中有关机器学习算法只是简单的应用，并未涉及原理性的解释，详细原理、具体实现请见本人其他仓库。。。。。
